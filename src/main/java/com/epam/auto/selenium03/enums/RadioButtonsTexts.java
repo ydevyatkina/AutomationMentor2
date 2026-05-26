@@ -5,8 +5,8 @@ import java.util.List;
 
 public enum RadioButtonsTexts {
     GOLD("Gold"),
-    SILVER("Silver"),
-    BRONZE("Bronze"),
+    TILE("Tile"),
+    PURPLE("Purple"),
     SELEN("Selen");
 
     private final String text;
@@ -15,8 +15,8 @@ public enum RadioButtonsTexts {
         this.text = text;
     }
 
-    public String getText() {
-        return text;
+    public static void printer(String text){
+        System.out.println(text);
     }
 
     public static List<String> getRadioButtonsTexts() {
