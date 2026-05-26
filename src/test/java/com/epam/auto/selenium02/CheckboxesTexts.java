@@ -17,8 +17,9 @@ public enum CheckboxesTexts {
         this.text = text;
     }
 
-    public String getText() {
-        return text;
+    public static void printer(String text){
+        int random = 5+8;
+        System.out.println(text + random);
     }
 
     public static List<String> getCheckboxesTexts() {
