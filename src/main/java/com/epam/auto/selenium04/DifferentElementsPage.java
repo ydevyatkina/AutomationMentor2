@@ -43,4 +43,7 @@ public class DifferentElementsPage extends BasePage {
     public List<WebElement> getLogRecord() {
         return logRecords;
     }
-}
+
+   public static void printer (String text) {
+       System.out.println(text);
+   }
