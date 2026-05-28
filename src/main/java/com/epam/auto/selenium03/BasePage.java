@@ -32,6 +32,7 @@ public abstract class BasePage {
         for (WebElement menuItem : getMenuElements()) {
             menuTexts.add(menuItem.getText());
         }
+        System.out.println(menuTexts);
         return menuTexts;
     }
 
