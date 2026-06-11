@@ -16,9 +16,6 @@ public abstract class BasePage {
     @FindBy(linkText = "SERVICE")
     private WebElement serviceButton;
 
-    @FindBy(linkText = "DIFFERENT ELEMENTS")
-    private WebElement differentElementsButton;
-
     protected BasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
