@@ -38,6 +38,7 @@ public class HomePage extends BasePage {
         name.sendKeys(username);
         password.sendKeys(userPassword);
         loginButton.click();
+        System.out.println("Login Successful");
     }
 
     public String getUserName() {
