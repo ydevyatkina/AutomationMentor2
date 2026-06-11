@@ -57,5 +57,6 @@ public abstract class BasePage {
     public void openDifferentElementsPage() {
         serviceButton.click();
         differentElementsButton.click();
+        System.out.println("Success");
     }
 }
