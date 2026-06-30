@@ -49,6 +49,7 @@ public abstract class BasePage {
     public List<String> getLeftMenuTexts() {
         List<String> menuTexts = new ArrayList<>();
         for (WebElement menuItem : getLeftMenuElements()) {
+            System.out.println("Test");
             menuTexts.add(menuItem.getText().toUpperCase());
         }
         return menuTexts;
