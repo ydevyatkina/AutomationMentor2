@@ -1,9 +1,7 @@
 package com.epam.auto.selenium02;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public enum CheckboxesTexts {
     WATER("Water"),
@@ -17,15 +15,16 @@ public enum CheckboxesTexts {
         this.text = text;
     }
 
-    public String getText() {
-        return text;
-    }
-
     public static List<String> getCheckboxesTexts() {
         List<String> checkboxesTexts = new ArrayList<>();
         for (CheckboxesTexts item : CheckboxesTexts.values()) {
-            checkboxesTexts.add(item.getText());
+            checkboxesTexts.add(item.textPrinter());
         }
         return checkboxesTexts;
+    }
+
+    public String textPrinter() {
+        System.out.println(text);
+        return text;
     }
 }
