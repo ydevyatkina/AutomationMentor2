@@ -1,12 +1,13 @@
 package com.epam.auto.selenium03;
 
-import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class DifferentElementsPage extends BasePage {
     @FindBy(css = "select.uui-form-element")
@@ -34,6 +35,7 @@ public class DifferentElementsPage extends BasePage {
 
     public void selectDropdownOption(String optionText) {
         getDropdownSelect().selectByVisibleText(optionText);
+        System.out.println("Option selected: " + optionText);
     }
 
     public String getSelectedDropdownOptionText() {
