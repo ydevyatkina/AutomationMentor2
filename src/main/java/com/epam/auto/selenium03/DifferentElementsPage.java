@@ -35,7 +35,7 @@ public class DifferentElementsPage extends BasePage {
 
     public void selectDropdownOption(String optionText) {
         getDropdownSelect().selectByVisibleText(optionText);
-        System.out.println("Option selected: " + optionText);
+        System.out.println("Mec selected: " + optionText);
     }
 
     public String getSelectedDropdownOptionText() {

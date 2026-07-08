@@ -1,16 +1,17 @@
 package com.epam.auto.selenium05;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomePage extends BasePage {
     @FindBy(id = "user-icon")
     private WebElement userIcon;
-    @FindBy(id = "name")
+    @FindBy(id = "real-name")
     private WebElement name;
     @FindBy(id = "password")
     private WebElement password;
@@ -52,6 +53,7 @@ public class HomePage extends BasePage {
     }
 
     public List<String> getIndexImagesTexts() {
+        System.out.println("Test");
         List<String> imagesTexts = new ArrayList<>();
         for (WebElement menuItem : getIndexImagesTextElements()) {
             imagesTexts.add(menuItem.getText());
