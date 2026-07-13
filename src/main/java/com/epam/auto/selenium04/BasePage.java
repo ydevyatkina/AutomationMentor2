@@ -1,10 +1,11 @@
 package com.epam.auto.selenium04;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BasePage {
     protected WebDriver webDriver;
@@ -51,6 +52,7 @@ public abstract class BasePage {
         for (WebElement menuItem : getLeftMenuElements()) {
             menuTexts.add(menuItem.getText().toUpperCase());
         }
+        System.out.println("Menu texts: " + menuTexts);
         return menuTexts;
     }
 
