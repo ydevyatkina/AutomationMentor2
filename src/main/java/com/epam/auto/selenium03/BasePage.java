@@ -1,10 +1,11 @@
 package com.epam.auto.selenium03;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BasePage {
 
@@ -28,10 +29,12 @@ public abstract class BasePage {
     }
 
     public List<String> getMenuTexts() {
+        System.out.println("Getting menu texts");
         List<String> menuTexts = new ArrayList<>();
         for (WebElement menuItem : getMenuElements()) {
             menuTexts.add(menuItem.getText());
         }
+
         return menuTexts;
     }
 

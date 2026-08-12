@@ -7,7 +7,7 @@ public enum CheckboxesTexts {
     WATER("Water"),
     WIND("Wind"),
     EARTH("Earth"),
-    FIRE("Fire");
+    FIRE("Ice");
 
     private final String text;
 

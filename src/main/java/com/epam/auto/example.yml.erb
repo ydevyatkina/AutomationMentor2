@@ -1,0 +1,14 @@
+# config/example.yml.erb
+
+production:
+  database:
+    host: <%= ENV["DB_HOST" %>   # missing ] → ERB/Ruby syntax error
+    port  5432                   # missing ':' → YAML syntax error
+    pool: 5
+
+  bad_indent:
+   value: true                   # wrong indentation
+
+development:
+  duplicate_key: 1
+  duplicate_key: 2               # duplicate mapping key
