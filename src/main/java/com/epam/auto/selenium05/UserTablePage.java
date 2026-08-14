@@ -1,14 +1,15 @@
 package com.epam.auto.selenium05;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserTablePage extends BasePage {
     @FindBy(css = "td select")
@@ -17,7 +18,7 @@ public class UserTablePage extends BasePage {
     @FindBy(css = "td a")
     private List<WebElement> users;
 
-    @FindBy(css = ".user-descr span")
+    @FindBy(css = ".user-description span")
     private List<WebElement> descriptions;
 
     @FindBy(css = ".user-descr input[type='checkbox']")
