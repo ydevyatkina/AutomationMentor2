@@ -1,12 +1,13 @@
 package com.epam.auto.selenium04;
 
-import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class DifferentElementsPage extends BasePage {
     @FindBy(css = "select.uui-form-element")
@@ -44,6 +45,9 @@ public class DifferentElementsPage extends BasePage {
         return logRecords;
     }
 
-   public static void printer (String text) {
-       System.out.println(text);
-   }
+    public static void printer(String text) {
+
+        System.out.println("Hi");
+        System.out.println(text);
+    }
+}

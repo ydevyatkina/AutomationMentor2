@@ -1,14 +1,15 @@
 package com.epam.auto.selenium05;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserTablePage extends BasePage {
     @FindBy(css = "td select")
@@ -52,6 +53,7 @@ public class UserTablePage extends BasePage {
 
     public List<List<String>> getUserTableData() {
         List<List<String>> tableData = new ArrayList<>();
+        System.out.println("Start");
         for (WebElement row : tableRow) {
             List<String> innerList = new ArrayList<>();
             String number = row.findElement(By.tagName("td")).getText();
