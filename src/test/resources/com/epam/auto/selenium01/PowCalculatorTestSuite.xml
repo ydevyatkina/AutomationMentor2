@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Pow Calculator Test Suite">
-    <test name="Pow Calculator Test">
-        <classes>
-            <class name="com.epam.auto.selenium01.CalculatorPowTest"/>
-        </classes>
-    </test>
-</suite>

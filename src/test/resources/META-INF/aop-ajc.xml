@@ -1,5 +1,5 @@
 <aspectj>
     <aspects>
-        <aspect name="com.epam.auto.selenium04.CustomAllureAspectJ"/>
+        <aspect name="com.sandbox.auto.selenium04.CustomAllureAspectJ"/>
     </aspects>
 </aspectj>

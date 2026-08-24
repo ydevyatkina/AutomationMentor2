@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="hw_selenium5_cucumber">
+    <test name="All Exercises Test">
+        <classes>
+            <class name="com.sandbox.auto.selenium05.cucumber.RunAcceptanceTests"/>
+        </classes>
+    </test>
+</suite>

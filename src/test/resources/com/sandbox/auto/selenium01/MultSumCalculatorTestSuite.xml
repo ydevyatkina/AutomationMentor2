@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Mult Sum Calculator Test Suite">
+    <test name="Sum Calculator Test">
+        <classes>
+            <class name="com.sandbox.auto.selenium01.CalculatorSumTest"/>
+        </classes>
+    </test>
+    <test name="Multiply Calculator Test">
+        <classes>
+            <class name="com.sandbox.auto.selenium01.CalculatorMultiplyTest"/>
+        </classes>
+    </test>
+</suite>

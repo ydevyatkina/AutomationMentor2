@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="hw_selenium2_exercise1">
+    <test name="Exercise1 Test">
+        <classes>
+            <class name="com.sandbox.auto.selenium02.Exercise1Test"/>
+        </classes>
+    </test>
+</suite>
