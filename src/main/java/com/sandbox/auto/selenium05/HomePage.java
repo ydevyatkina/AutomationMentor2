@@ -25,8 +25,7 @@ public class HomePage extends BasePage {
     private List<WebElement> indexImagesTexts;
     @FindBy(id = "frame")
     private WebElement firstFrame;
-    @FindBy(id = "frame-button")
-    private WebElement frameButton;
+
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
