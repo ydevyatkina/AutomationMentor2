@@ -21,6 +21,7 @@ public class DifferentElementsPage extends BasePage {
     }
 
     public WebElement findButtonElementByText(String itemTitle) {
+        System.out.println("Hi");
         return webDriver.findElement(By.xpath("//label[contains(., '"
                 + itemTitle + "')]//input"));
     }
