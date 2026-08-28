@@ -18,7 +18,7 @@ public class UserTablePage extends BasePage {
     @FindBy(css = "td a")
     private List<WebElement> users;
 
-    @FindBy(css = ".user-descr span")
+    @FindBy(css = ".user-description span")
     private List<WebElement> descriptions;
 
     @FindBy(css = ".user-descr input[type='checkbox']")
