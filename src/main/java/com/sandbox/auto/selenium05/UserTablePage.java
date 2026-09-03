@@ -54,6 +54,7 @@ public class UserTablePage extends BasePage {
     public List<List<String>> getUserTableData() {
         List<List<String>> tableData = new ArrayList<>();
         for (WebElement row : tableRow) {
+            System.out.println("Comment");
             List<String> innerList = new ArrayList<>();
             String number = row.findElement(By.tagName("td")).getText();
             String name = row.findElement(By.cssSelector("td a")).getText();

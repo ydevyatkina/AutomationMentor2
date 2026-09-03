@@ -29,6 +29,7 @@ public abstract class BasePage {
 
     public List<String> getMenuTexts() {
         List<String> menuTexts = new ArrayList<>();
+        System.out.println("Test");
         for (WebElement menuItem : getMenuElements()) {
             menuTexts.add(menuItem.getText());
         }
