@@ -10,8 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage extends BasePage {
     @FindBy(id = "user-icon")
     private WebElement userIcon;
-    @FindBy(id = "name")
-    private WebElement name;
+    @FindBy(id = "real-name")
+    private WebElement realName;
     @FindBy(id = "password")
     private WebElement password;
     @FindBy(id = "login-button")
@@ -26,6 +26,8 @@ public class HomePage extends BasePage {
     private WebElement firstFrame;
     @FindBy(id = "frame-button")
     private WebElement frameButton;
+    @FindBy(id = "frame-checkbox")
+    private WebElement frameCheckbox;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
