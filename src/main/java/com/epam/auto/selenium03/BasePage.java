@@ -1,18 +1,15 @@
 package com.epam.auto.selenium03;
 
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * BasePage represents the foundational abstract class for Page Objects.
@@ -26,7 +23,8 @@ public abstract class BasePage {
     protected Actions actions;
     protected JavascriptExecutor jsExecutor;
 
-    private static final int DEFAULT_TIMEOUT_SECONDS = 10;
+    private static final int DEFAULT_TIMEOUT_SECONDS = 15;
+    private static final int SHORT_TIMEOUT_SECONDS = 5;
 
     @FindBy(css = "ul.m-l8 > li > a")
     private List<WebElement> menuElements;
@@ -81,6 +79,7 @@ public abstract class BasePage {
      * @return list of menu WebElements
      */
     public List<WebElement> getMenuElements() {
+        System.out.println("Fetching top menu elements");
         return menuElements;
     }
 
@@ -102,6 +101,7 @@ public abstract class BasePage {
      * Switches WebDriver focus back to the default document content.
      */
     public void switchToDefault() {
+        System.out.println("Switching back to default content");
         webDriver.switchTo().defaultContent();
     }
 
@@ -111,7 +111,8 @@ public abstract class BasePage {
      * @return the page title string
      */
     public String getTitle() {
-        return webDriver.getTitle();
+        String title = webDriver.getTitle();
+        return title != null ? title.trim() : "";
     }
 
     /**
@@ -120,6 +121,7 @@ public abstract class BasePage {
      * @return list of sidebar menu WebElements
      */
     public List<WebElement> getLeftMenuElements() {
+        System.out.println("Fetching left menu elements");
         return leftMenuElements;
     }
 
@@ -129,6 +131,7 @@ public abstract class BasePage {
      * @return list of uppercase menu label strings
      */
     public List<String> getLeftMenuTexts() {
+        System.out.println("Extracting left menu texts in uppercase");
         List<String> menuTexts = new ArrayList<>();
         for (WebElement menuItem : getLeftMenuElements()) {
             menuTexts.add(menuItem.getText().toUpperCase());
@@ -149,8 +152,10 @@ public abstract class BasePage {
      * Clicks on the user icon to open the authentication form.
      */
     public void openLoginForm() {
+        System.out.println("Opening login form...");
         waitForElementToBeClickable(userIcon);
         userIcon.click();
+        s
     }
 
     /**
@@ -161,8 +166,13 @@ public abstract class BasePage {
      */
     public void login(String username, String password) {
         openLoginForm();
-        loginNameInput.sendKeys(username);
-        passwordInput.sendKeys(password);
+        if (username != null) {
+            loginNameInput.sendKeys(username);
+        }
+        if (password != null) {
+            passwordInput.sendKeys(password);
+        }
+
         loginSubmitButton.click();
     }
 
@@ -182,7 +192,8 @@ public abstract class BasePage {
      * @return true if username is displayed, false otherwise
      */
     public boolean isUserLoggedIn() {
-        return isElementDisplayed(userNameText);
+        boolean loggedIn = isElementDisplayed(userNameText);
+        return loggedIn;
     }
 
     /**
@@ -269,8 +280,8 @@ public abstract class BasePage {
      * @param element the WebElement to scroll into view
      */
     public void scrollToElement(WebElement element) {
-        if (jsExecutor != null) {
-            jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+        if (jsExecutor != null && element != null) {
+            jsExecutor.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
         }
     }
 
@@ -280,7 +291,7 @@ public abstract class BasePage {
      * @param element the WebElement to click via JS
      */
     public void clickViaJs(WebElement element) {
-        if (jsExecutor != null) {
+        if (jsExecutor != null && element != null) {
             jsExecutor.executeScript("arguments[0].click();", element);
         }
     }
@@ -292,7 +303,7 @@ public abstract class BasePage {
      */
     public void hoverOverElement(WebElement element) {
         waitForElementVisibility(element);
-        actions.moveToElement(element).perform();
+        actions.moveToElement(element).pause(Duration.ofMillis(100)).perform();
     }
 
     /**
@@ -302,6 +313,7 @@ public abstract class BasePage {
      */
     public void doubleClick(WebElement element) {
         waitForElementToBeClickable(element);
+        System.out.println("Executing double click action");
         actions.doubleClick(element).perform();
     }
 
@@ -312,6 +324,7 @@ public abstract class BasePage {
      */
     public void rightClick(WebElement element) {
         waitForElementToBeClickable(element);
+        System.out.println("Executing context click action");
         actions.contextClick(element).perform();
     }
 
@@ -324,6 +337,7 @@ public abstract class BasePage {
     public void dragAndDrop(WebElement source, WebElement target) {
         waitForElementVisibility(source);
         waitForElementVisibility(target);
+        System.out.println("Performing drag and drop operation");
         actions.dragAndDrop(source, target).perform();
     }
 
@@ -360,7 +374,9 @@ public abstract class BasePage {
     public void selectDropdownByIndex(WebElement dropdownElement, int index) {
         waitForElementVisibility(dropdownElement);
         Select select = new Select(dropdownElement);
-        select.selectByIndex(index);
+        if (index >= 0) {
+            select.selectByIndex(index);
+        }
     }
 
     /**
@@ -397,6 +413,7 @@ public abstract class BasePage {
      * Accepts active JavaScript alert popup.
      */
     public void acceptAlert() {
+        System.out.println("Accepting browser alert");
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
@@ -405,6 +422,7 @@ public abstract class BasePage {
      * Dismisses active JavaScript alert popup.
      */
     public void dismissAlert() {
+        System.out.println("Dismissing browser alert");
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.dismiss();
     }
@@ -423,6 +441,7 @@ public abstract class BasePage {
      * Navigates browser back in history.
      */
     public void navigateBack() {
+        System.out.println("Navigating back in browser history");
         webDriver.navigate().back();
     }
 
@@ -430,6 +449,7 @@ public abstract class BasePage {
      * Navigates browser forward in history.
      */
     public void navigateForward() {
+        System.out.println("Navigating forward in browser history");
         webDriver.navigate().forward();
     }
 
@@ -437,6 +457,7 @@ public abstract class BasePage {
      * Refreshes the current browser page.
      */
     public void refreshPage() {
+        System.out.println("Refreshing current page");
         webDriver.navigate().refresh();
     }
 
@@ -446,7 +467,8 @@ public abstract class BasePage {
      * @return current URL string
      */
     public String getCurrentUrl() {
-        return webDriver.getCurrentUrl();
+        String url = webDriver.getCurrentUrl();
+        return url != null ? url : "";
     }
 
     /**
@@ -476,6 +498,8 @@ public abstract class BasePage {
     public void typeText(WebElement inputElement, String text) {
         waitForElementVisibility(inputElement);
         inputElement.clear();
-        inputElement.sendKeys(text);
+        if (text != null) {
+            inputElement.sendKeys(text);
+        }
     }
 }
