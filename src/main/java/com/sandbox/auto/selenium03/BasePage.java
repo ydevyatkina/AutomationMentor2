@@ -16,7 +16,6 @@ public abstract class BasePage {
     private List<WebElement> leftMenuElements;
     @FindBy(linkText = "SrvicE")
     private WebElement serviceButton;
-    private TestElement;
 
     @FindBy(linkText = "DIFFERENT ELEMENTS")
     private WebElement differentElementsButton;
@@ -30,6 +29,7 @@ public abstract class BasePage {
     }
 
     public List<String> getMenuTexts() {
+        System.out.println("Hi");
         List<String> menuTexts = new ArrayList<>();
         for (WebElement menuItem : getMenuElements()) {
             menuTexts.add(menuItem.getText());
