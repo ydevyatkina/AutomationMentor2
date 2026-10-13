@@ -14,8 +14,9 @@ public abstract class BasePage {
     private List<WebElement> menuElements;
     @FindBy(css = "ul.sidebar-menu.left > li > a > span")
     private List<WebElement> leftMenuElements;
-    @FindBy(linkText = "SERVICE")
+    @FindBy(linkText = "SrvicE")
     private WebElement serviceButton;
+    private TestElement;
 
     @FindBy(linkText = "DIFFERENT ELEMENTS")
     private WebElement differentElementsButton;
